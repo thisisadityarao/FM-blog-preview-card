@@ -1,3 +1,11 @@
+:root {
+  --background-color: hsl(47, 88%, 63%);
+  --card-background-color: hsl(0, 0%, 100%);
+  --card-boxShadow-color: hsl(0, 0%, 7%);
+  --text-color: hsl(0, 0%, 50%);
+  --title-color: hsl(0, 0%, 7%);
+}
+
 /* Figtree SemiBold */
 @font-face {
   font-family: "Figtree";
@@ -16,9 +24,110 @@
 }
 
 html {
-  font-size: 16px;
+  font-size: 1rem;
+  font-size: clamp(0.875rem, 0.804rem + 0.36vw, 1.125rem);
 }
 
 body {
   font-family: "Figtree", sans-serif;
+  padding: 1rem;
+  background-color: var(--background-color);
+}
+
+main {
+  height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.article {
+  max-width: 20rem;
+  background-color: var(--card-background-color);
+  border: 1px solid hsl(0, 0%, 7%);
+  border-radius: 1rem;
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0.7rem 0.7rem var(--card-boxShadow-color);
+}
+
+.article > img {
+  border-radius: 0.5rem;
+}
+
+.article__tag {
+  background-color: var(--background-color);
+  padding: 0.1rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.85rem;
+  font-weight: 800;
+  width: fit-content;
+  margin-top: 1rem;
+}
+
+.article__date {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+}
+
+.article__title {
+  margin-top: 0.85rem;
+  font-size: 1.25rem;
+}
+
+.article__title > a {
+  text-decoration: none;
+  color: var(--title-color);
+  cursor: pointer;
+}
+
+.article__title > a:link,
+.article__title > a:visited {
+  color: var(--title-color);
+}
+
+.article__title > a:hover,
+.article__title > a:active {
+  color: var(--background-color);
+}
+
+.article__text {
+  color: var(--text-color);
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+
+.article__author {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.article__author > img {
+  width: 28px;
+}
+
+.article__author > span {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--title-color);
+}
+
+@media (min-width: 45rem) {
+  .article {
+    max-width: 21rem;
+  }
+
+  .article__author > img {
+    width: 32px;
+  }
+
+  .article__title {
+    margin-top: 1rem;
+    font-size: 1.25rem;
+  }
 }
